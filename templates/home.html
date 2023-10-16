@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_block %}
+<style>
+    .row {
+        height: 80vh;
+    }
+
+    .image-container {
+        padding: 20px;
+    }
+
+    .btn-container {
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block body_block %}
+
+{% include 'navbar.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 m-auto p-auto image-container">
+            <img src="{% static 'images/LOAN.PNG' %}" class="img-fluid" alt="Background Image" srcset="">
+
+        </div>
+        <div class="col-md-6 m-auto">
+            <div class="d-flex justify-content-center align-items-center btn-container">
+                {% if user.is_authenticated %}
+                    <div class='d-flex flex-column'>
+                        <div class='d-flex justify-content-between align-items-center'>
+                            Need Loan.... ?
+                            <a href="/loan/loan-request/">
+                                <button type="button" class="btn btn-info btn-rounded m-2" style="width:130px"> Request</button>
+                            </a>
+                        </div>
+                        <div class='d-flex justify-content-between align-items-center'>
+                            Pay EMI.... ?
+                            <a href="/loan/loan-payment/">
+                                <button type="button" class="btn btn-info btn-rounded m-2" style="width:130px"> Pay</button>
+                            </a>
+                        </div>
+                        <div class='d-flex justify-content-between align-items-center'>
+                            Transactions.... ?
+                            <a href="/loan/user-transaction/">
+                                <button type="button" class="btn btn-info btn-rounded m-2" style="width:130px"> Transactions</button>
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class='d-flex flex-column'>
+                        <div class='d-flex justify-content-between align-items-center'>
+                            New User.... ? 
+                            <a href="/account/signup/">
+                                <button type="button" class="btn btn-info btn-rounded m-2" style="width:130px">Sign Up</button>
+                            </a>
+                        </div>
+                        <div class='d-flex justify-content-center align-items-center'>
+                            Registered User.... ?  
+                            <a href="/account/login/">
+                                <button type="button" class="btn btn-info btn-rounded m-2" style="width:130px">Log In</button>
+                            </a>
+                        </div>
+                    </div>
+                    
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% comment %} {% extends 'base.html' %}
+{% load static %}
+
+{% block css_block %}
+
+<style>
+    .row {
+        height: 80vh;
+
+    }
+</style>
+{% endblock %}
+
+{% block body_block %}
+
+{% include 'navbar.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 m-auto p-auto">
+            <img src="{% static 'images/LOAN.PNG' %}" class="img-fluid" alt="Background Image" srcset="" style="max-width: 75%">
+
+        </div>
+        <div class="col-md-6 m-auto">
+            <div class="d-flex justify-content-center align-items-center">
+                {% if user.is_authenticated %}
+                    <a href="/loan/loan-request/">
+                        <button type="button" class="btn btn-info btn-rounded m-2">Apply Loan</button>
+                    </a>
+
+                {% else %}
+                    <a href="/account/signup-customer/">
+
+                        <button type="button" class="btn btn-info btn-rounded ms-2">Register</button>
+                    </a>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %} {% endcomment %}
